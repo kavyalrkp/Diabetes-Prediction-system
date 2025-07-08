@@ -6,11 +6,11 @@ import joblib
 model = joblib.load('diabetes_dataset.pkl')
 scaler = joblib.load('scaler.pkl')
 
-# ---------- PAGE CONFIGURATION ----------
+# PAGE CONFIGURATION
 st.set_page_config(page_title="Diabetes Prediction", page_icon="🧠", layout="centered")
 
 
-# ---------- CUSTOM CSS STYLE ----------
+# CUSTOM CSS STYLE
 st.markdown("""
     <style>
         body {
@@ -37,14 +37,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ---------- APP TITLE ----------
+# APP TITLE
 st.markdown("""
     <h1 style='text-align: center; color: #007B8A;'>
         🧠 Diabetes Prediction System
     </h1>
 """, unsafe_allow_html=True)
 
-# ---------- INPUT FORM ----------
+# INPUT FORM
 preg = st.number_input('Pregnancies', min_value=0)
 glucose = st.number_input('Glucose Level', min_value=0)
 bp = st.number_input('Blood Pressure', min_value=0)
@@ -55,7 +55,7 @@ dpf = st.number_input('Diabetes Pedigree Function', min_value=0.0, format="%.3f"
 age = st.number_input('Age', min_value=1)
 
 
-# ---------- PREDICT BUTTON ----------
+# PREDICT BUTTON
 if st.button('🎗️ Predict'):
     input_data = np.array([[preg, glucose, bp, skin, insulin, bmi, dpf, age]])
     scaled_input = scaler.transform(input_data)
